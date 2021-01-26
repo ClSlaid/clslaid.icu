@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://clslaid-icu.vercel.app/sitemap.xml
