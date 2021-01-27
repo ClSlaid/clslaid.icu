@@ -13,7 +13,7 @@
       <pubDate>Wed, 27 Jan 2021 12:46:44 +0800</pubDate>
       
       <guid>https://clslaid.icu/post/new_home/</guid>
-      <description>迁移 直接跑路 又一次一时兴起, 这次惨遭毒手的是 vercel + github + hugo. 不说了, 静态博客真香, LNMP 还是不适合懒人.</description>
+      <description>迁移 直接跑路 又一次一时兴起, 这次惨遭毒手的是 vercel + github + hugo. 不说了, 静态博客真香, LNMP 还是不适合懒人. 新博客功能演示 数学公式： $$ F(f) = \int_{-\infty}^{\infty}{f(t)e^{j2{\pi}ft}}{\rm d}t $$ 代码演示：</description>
     </item>
     
   </channel>

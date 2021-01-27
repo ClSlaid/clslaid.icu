@@ -9,3 +9,24 @@ draft: false
 又一次一时兴起, 这次惨遭毒手的是 `vercel` + `github` + `hugo`.
 
 不说了, 静态博客真香, <abbr>`LNMP`</abbr> 还是不适合懒人.
+
+## 新博客功能演示
+
+数学公式：
+$$
+    F(f) = \int_{-\infty}^{\infty}{f(t)e^{j2{\pi}ft}}{\rm d}t
+$$
+
+代码演示：
+
+```haskell
+    quicksort1 :: (Ord a) => [a] -> [a]
+    quicksort1 [] = []
+    quicksort1 (x:xs) =
+        let smallerSorted = quicksort1 [a | a <- xs, a <= x]
+            biggerSorted = quicksort1 [a | a <- xs, a > x]
+        in  smallerSorted ++ [x] ++ biggerSorted
+    -- use haskell because it's beautiful
+    -- and also can show whether you got font ligatures.
+```
+
