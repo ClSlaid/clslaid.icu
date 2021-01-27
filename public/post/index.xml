@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on ClSlaid.icu | can you save me?</title>
-    <link>https://clslaid-icu.vercel.app/post/</link>
+    <link>https://clslaid.icu/post/</link>
     <description>Recent content in Posts on ClSlaid.icu | can you save me?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de</language>
-    <lastBuildDate>Wed, 27 Jan 2021 12:46:44 +0800</lastBuildDate><atom:link href="https://clslaid-icu.vercel.app/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Jan 2021 12:46:44 +0800</lastBuildDate><atom:link href="https://clslaid.icu/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>new_home</title>
-      <link>https://clslaid-icu.vercel.app/post/new_home/</link>
+      <link>https://clslaid.icu/post/new_home/</link>
       <pubDate>Wed, 27 Jan 2021 12:46:44 +0800</pubDate>
       
-      <guid>https://clslaid-icu.vercel.app/post/new_home/</guid>
+      <guid>https://clslaid.icu/post/new_home/</guid>
       <description>迁移 直接跑路 又一次一时兴起, 这次惨遭毒手的是 vercel + github + hugo. 不说了, 静态博客真香, LNMP 还是不适合懒人.</description>
     </item>
     

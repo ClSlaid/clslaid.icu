@@ -1,35 +1,35 @@
-<?xml-stylesheet type="text/xsl" href="https://clslaid-icu.vercel.app/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://clslaid.icu/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://clslaid-icu.vercel.app/</loc>
-    <lastmod>2021-01-27T12:46:44+08:00</lastmod>
+    <loc>https://clslaid.icu/</loc>
+    <lastmod>2021-01-27T13:48:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://clslaid-icu.vercel.app/post/new_home/</loc>
-    <lastmod>2021-01-27T12:46:44+08:00</lastmod>
+    <loc>https://clslaid.icu/post/new_home/</loc>
+    <lastmod>2021-01-27T13:48:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://clslaid-icu.vercel.app/post/</loc>
-    <lastmod>2021-01-27T12:46:44+08:00</lastmod>
+    <loc>https://clslaid.icu/post/</loc>
+    <lastmod>2021-01-27T13:48:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://clslaid-icu.vercel.app/categories/</loc>
+    <loc>https://clslaid.icu/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://clslaid-icu.vercel.app/tags/</loc>
+    <loc>https://clslaid.icu/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

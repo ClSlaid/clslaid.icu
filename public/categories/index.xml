@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on ClSlaid.icu | can you save me?</title>
-    <link>https://clslaid-icu.vercel.app/categories/</link>
+    <link>https://clslaid.icu/categories/</link>
     <description>Recent content in Categories on ClSlaid.icu | can you save me?</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>de</language><atom:link href="https://clslaid-icu.vercel.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>de</language><atom:link href="https://clslaid.icu/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
