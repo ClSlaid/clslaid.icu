@@ -1,6 +1,6 @@
 baseURL = "https://clslaid.icu"
-languageCode = "zh-cn"
-defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
+languageCode = "de"
+defaultContentLanguage = "de"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "ClSlaid.icu | can you save me?"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
