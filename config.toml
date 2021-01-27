@@ -59,7 +59,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   gitRepo = "https://github.com/ClSlaid/clslaid.icu.git"
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "$F(\\omega)=\\int_{-\\infty}^{\\infty}{f(t)e^{j{\\omega}t}}{\\rm{d}}t$"        # default: the title value    # 默认值: 上面设置的title值
+  # logoTitle = "$F(\\omega)=\\int_{-\\infty}^{\\infty}{f(t)e^{j{\\omega}t}}{\\rm{d}}t$"        # default: the title value    # 默认值: 上面设置的title值
+  logoTitle = "$X_{k}=\\sum\\limits_{n=0}^{N-1}{x_{n}e^{-j2{\\pi}k\\frac{n}{N}}}$"        # default: the title value    # 默认值: 上面设置的title值
   keywords = ["Hugo", "theme","even"]
   description = "Hugo theme even example site."
 
@@ -88,7 +89,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   mathjax = true          # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
   mathjaxEnableSingleDollar = true                                                     # 是否使用 $...$ 即可進行inline latex渲染
   mathjaxEnableAutoNumber = true                                                      # 是否使用公式自动编号
-  mathjaxUseLocalFiles = false  # You should install mathjax in `your-site/static/lib/mathjax`
+  mathjaxUseLocalFiles = true  # You should install mathjax in `your-site/static/lib/mathjax`
 
   postMetaInFooter = true   # contain author, lastMod, markdown link, license           # 包含作者，上次修改时间，markdown链接，许可信息
   linkToMarkDown = false    # Only effective when hugo will output .md files.           # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
