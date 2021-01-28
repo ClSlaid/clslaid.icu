@@ -34,7 +34,7 @@ $$
 
 ```
 
-```C
+```c
     #include<stdio.h>
     int
     main(int *argc, char **argv)
@@ -68,4 +68,23 @@ sequence diagrams:
     Bob->Alice: I am good thanks!
 ```
 
-目前不打算整 mermaid.
+mermaid: 
+
+```mermaid
+graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)
+```
+<div class="mermaid">
+graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)
+</div>
