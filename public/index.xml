@@ -1,54 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ClSlaid</title>
+    <title>ClSlaid.icu | can you save me?</title>
     <link>https://clslaid.icu/</link>
-    <description>Recent content on ClSlaid</description>
+    <description>Recent content on ClSlaid.icu | can you save me?</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>©2020 Notepadium.</copyright>
-    <lastBuildDate>Wed, 27 Jan 2021 12:46:44 +0800</lastBuildDate>
-    
-        <atom:link href="https://clslaid.icu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 27 Jan 2021 12:46:44 +0800</lastBuildDate><atom:link href="https://clslaid.icu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>new_home</title>
       <link>https://clslaid.icu/post/new_home/</link>
       <pubDate>Wed, 27 Jan 2021 12:46:44 +0800</pubDate>
       
       <guid>https://clslaid.icu/post/new_home/</guid>
-      <description>&lt;h2 id=&#34;迁移-subsmallsmall直接跑路smallsmallsub&#34;&gt;迁移 &lt;sub&gt;&lt;small&gt;&lt;small&gt;直接跑路&lt;/small&gt;&lt;/small&gt;&lt;/sub&gt;&lt;/h2&gt;
-&lt;p&gt;又一次一时兴起, 这次惨遭毒手的是 &lt;code&gt;vercel&lt;/code&gt; + &lt;code&gt;github&lt;/code&gt; + &lt;code&gt;hugo&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;不说了, 静态博客真香, &lt;abbr&gt;&lt;code&gt;LNMP&lt;/code&gt;&lt;/abbr&gt; 还是不适合懒人.&lt;/p&gt;
-&lt;h2 id=&#34;新博客功能演示&#34;&gt;新博客功能演示&lt;/h2&gt;
-&lt;p&gt;数学公式：
-$$
-F(f) = \int_{-\infty}^{\infty}{f(t)e^{j2{\pi}ft}}{\rm d}t
-$$&lt;/p&gt;
-&lt;p&gt;代码演示：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-haskell&#34; data-lang=&#34;haskell&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;-- font: sarasa-mono-sc&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;-- using it to get better support for East Asian Characters especially Simplified Chinese.&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;-- use haskell because it&amp;#39;s beautiful&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;-- and also can show whether you got font ligatures.&lt;/span&gt;
-    
-    &lt;span class=&#34;n&#34;&gt;quicksort1&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;::&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;Ord&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;quicksort1&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;[]&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;quicksort1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;=&lt;/span&gt;
-        &lt;span class=&#34;kr&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;smallerSorted&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;quicksort1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;biggerSorted&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;quicksort1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-        &lt;span class=&#34;kr&#34;&gt;in&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;smallerSorted&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;biggerSorted&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;    &lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt;&lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;
-    &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s, %s&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;输入两参数如上↑&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;// 你可以发现中英文完全对齐
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// 只是英文好挤好怪啊（恼
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>迁移 直接跑路 又一次一时兴起, 这次惨遭毒手的是 vercel + github + hugo. 不说了, 静态博客真香, LNMP 还是不适合懒人. 新博客功能演示 数学公式： $$ F(f) = \int_{-\infty}^{\infty}{f(t)e^{j2{\pi}ft}}{\rm d}t $$ 代码演示：</description>
     </item>
     
     <item>
@@ -57,28 +22,7 @@ $$&lt;/p&gt;
       <pubDate>Wed, 27 Jan 2021 01:43:11 +0800</pubDate>
       
       <guid>https://clslaid.icu/about/</guid>
-      <description>&lt;h1 id=&#34;who-am-i&#34;&gt;who am I?&lt;/h1&gt;
-&lt;p&gt;19 岁，是老垃圾👾。&lt;/p&gt;
-&lt;h2 id=&#34;经历&#34;&gt;经历&lt;/h2&gt;
-&lt;p&gt;2018～2022: 就读于北京邮电大学。&lt;/p&gt;
-&lt;h2 id=&#34;友情链接&#34;&gt;友情链接&lt;/h2&gt;
-&lt;details&gt;
-&lt;summary&gt;点击展开&lt;/summary&gt;
-&lt;p&gt;🐟 大佬：&lt;a href=&#34;https://blog.name1e5s.com&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Name1e5s Blog&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;缺氧甲醛：&lt;a href=&#34;https://hyker.com&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;甲醛的技术博客&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;学分学长：&lt;a href=&#34;https://sprinter1999.github.io&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;fenxue&amp;rsquo;s corner&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;即将脱单的何巨巨：&lt;a href=&#34;https://rinchannowww.github.io&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;RinchanNow!&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;柯西莫🍊：&lt;a href=&#34;https://murphy-orangemud.github.io&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Murphy&lt;/a&gt;
-&lt;/p&gt;
-&lt;/details&gt;
-&lt;h2 id=&#34;膜&#34;&gt;膜&lt;/h2&gt;
-&lt;p&gt;迟先生：&lt;a href=&#34;https://skyzh.dev&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;skyzh&lt;/a&gt;
-&lt;/p&gt;
-</description>
+      <description>who am I? 19 岁，是老垃圾👾。 经历 2018～2022: 就读于北京邮电大学。 友情链接 点击展开 🐟 大佬：Name1e5s Blog 缺氧甲醛：甲醛的技术博客 学分学</description>
     </item>
     
   </channel>
