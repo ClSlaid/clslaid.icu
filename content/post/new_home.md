@@ -20,13 +20,29 @@ $$
 代码演示：
 
 ```haskell
+    -- font: sarasa-mono-sc
+    -- using it to get better support for East Asian Characters especially Simplified Chinese.
+    -- use haskell because it's beautiful
+    -- and also can show whether you got font ligatures.
+    
     quicksort1 :: (Ord a) => [a] -> [a]
     quicksort1 [] = []
     quicksort1 (x:xs) =
         let smallerSorted = quicksort1 [a | a <- xs, a <= x]
             biggerSorted = quicksort1 [a | a <- xs, a > x]
         in  smallerSorted ++ [x] ++ biggerSorted
-    -- use haskell because it's beautiful
-    -- and also can show whether you got font ligatures.
+
 ```
 
+```C
+    #include<stdio.h>
+    int
+    main(int *argc, char **argv)
+    {
+        printf("%s, %s\n", argv[1], argv[2]);
+        printf("输入两参数如上↑\n");
+        // 你可以发现中英文完全对齐
+        // 只是英文好挤好怪啊（恼
+        return 0;
+    }
+```

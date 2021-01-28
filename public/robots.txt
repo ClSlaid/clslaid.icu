@@ -1,2 +1,3 @@
 User-agent: *
-Sitemap: https://clslaid.icu/sitemap.xml
+Disallow: 
+Sitemap: /sitemap.xml
