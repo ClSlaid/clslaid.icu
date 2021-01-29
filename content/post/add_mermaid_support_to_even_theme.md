@@ -1,7 +1,8 @@
 ---
-title: "如何为 hugo-theme-even 提供 mermaid 支持"
+title: "俺如何为 hugo-theme-even 提供 mermaid 支持"
 date: 2021-01-29T16:48:09+08:00
 draft: false
+tags: ["折腾", "前端"]
 ---
 
 ```mermaid
@@ -25,7 +26,7 @@ Note over 主机A, 主机B: TCP 连接建立成功
 
 ## 如何为你的 `Hugo` 博客引入 `mermaid` 支持？
 
-对于这一点，我可以说前人之述备矣。反手就是一堆参考资料：
+对于这一点，俺可以说前人之述备矣。反手就是一堆参考资料：
 
 - [Diagrams in hugo with mermaid](https://skeptric.com/diagrams-in-hugo/)
 - [拓展 Hugo 的 MarkDown 流程图](https://kentxxq.com/contents/%E6%8B%93%E5%B1%95hugo%E7%9A%84markdown_%E6%B5%81%E7%A8%8B%E5%9B%BEmermaid/)
@@ -41,9 +42,11 @@ Note over 主机A, 主机B: TCP 连接建立成功
 
 但是习惯了通过 `typora` 之类的 `MarkDown` 拓展编辑器，他们无一例外都支持按照如下风格进行渲染：
 
-\```mermaid
-... 图表内容 ...
-\```
+    ```mermaid
+
+    ... 图表内容 ...
+
+    ```
 
 能不能实现它，从而实现更加一颗赛艇的编辑体验呢？
 
@@ -53,7 +56,7 @@ Note over 主机A, 主机B: TCP 连接建立成功
 
 ## 实现原理
 
-通过阅读 `mermaid` 的 API 文档，我们可以得知 `mermaidAPI` 渲染 `mermaid` 图形的大致流程：
+通过阅读 `mermaid` 的 API 咱们可以得知 `mermaidAPI` 渲染 `mermaid` 图形的大致流程：
 
 ```mermaid
 sequenceDiagram
@@ -73,7 +76,7 @@ Note over 网页内容: 内容被替换为 SVG
 Note over 网页内容: 渲染完成的 HTML 文件
 ```
 
-上述的**特定标签**是指\<div class=\"mermaid">的 `HTML` 标签。通过检查页面元素，我们会发现如今的大部分博客将代码块渲染成如下式样：
+上述的**特定标签**是指\<div class=\"mermaid">的 `HTML` 标签。通过检查页面元素，咱们会发现如今的大部分博客将代码块渲染成如下式样：
 
 ```HTML
 <pre><code class="language-语言种类">
@@ -81,7 +84,7 @@ Note over 网页内容: 渲染完成的 HTML 文件
 </code></pre>
 ```
 
-也就是说我们只需要找到形如：
+也就是说咱们只需要找到形如：
 
 ```HTML
 <pre><code class="language-mermaid">
@@ -97,19 +100,19 @@ Note over 网页内容: 渲染完成的 HTML 文件
 
 > 注意： 下文中的 “/” 目录代表 even theme 项目的根目录而不是 *nix 文件系统的 root.
 
-本博客使用的是 even theme. 但是我相信参照本文在其他博客中进行实现也会大差不差。
+本博客使用的是 even theme. 但是俺相信参照本文在其他博客中进行实现也会大差不差。
 
-我在自己实现了此种风格之后即向 [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even) 提出了 PR，even theme 的用户应该可以在不久以后在新版本中得到 `mermaid` 支持。
+俺在自己实现了此种风格之后即向 [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even) 提出了 PR，even theme 的用户应该可以在不久以后在新版本中得到 `mermaid` 支持。
 
 ### 导入 mermaid.min.js
 
-实现应当遵循原理的指示精神，首先我们需要拥有 `mermaid` 库。通过观察源码猜测 even 主题在 `/static/layouts/partials/scripts.html` 中进行 JS 的载入。于是我们向其中插入能够引入 `mermaid` 模块的 script 标签。（实际上只要是会被加载的 HTML 文件都可以插）
+实现应当遵循原理的指示精神，首先咱们需要拥有 `mermaid` 库。通过观察源码猜测 even 主题在 `/static/layouts/partials/scripts.html` 中进行 JS 的载入。于是咱们向其中插入能够引入 `mermaid` 模块的 script 标签。（实际上只要是会被加载的 HTML 文件都可以插）
 
 这个标签在 HTML 文件里随便找个地方插就完事了，如果完全不懂，建议怼到 HTML 文件末尾。
 
 #### 通过 CDN 导入
 
-为了保持文章的时效性，我不会直接提供该 script 标签，但是你可以在 [jsdelivr.com](https://www.jsdelivr.com/package/npm/mermaid?path=dist) 中找到你中意版本的 `mermaid.min.js` 并按下右边的 Copy HTML + SRI 按钮即可获得对应的标签。
+为了保持文章的时效性，俺不会直接提供该 script 标签，但是你可以在 [jsdelivr.com](https://www.jsdelivr.com/package/npm/mermaid?path=dist) 中找到你中意版本的 `mermaid.min.js` 并按下右边的 Copy HTML + SRI 按钮即可获得对应的标签。
 
 #### 通过本地文件导入
 
@@ -123,7 +126,7 @@ Note over 网页内容: 渲染完成的 HTML 文件
 
 ### 替换 HTML 标签
 
-观察 even 主题的源码，我们可以在 `/assets/js/` 目录下发现 `main.js` 和 `even.js`。在 `even.js` 中插入如下代码段：
+观察 even 主题的源码，咱们可以在 `/assets/js/` 目录下发现 `main.js` 和 `even.js`。在 `even.js` 中插入如下代码段：
 
 ```javascript
 
@@ -176,9 +179,12 @@ Even.mermaid();
 ### 工具推荐
 
 - [Typora](https://typora.io)
-写 MarkDown 怎么能少得了 「[Typora](https://typora.io/)」？
+
+  写 MarkDown 咋能少得了 「[Typora](https://typora.io/)」？
+
 - [Visual Studio Code](https://code.visualstudio.com/)
-笔者写这篇文章用的无所不能的编辑器，建议添加插件：
+
+  俺写这篇文章用的无所不能的编辑器，建议添加插件：
 
   - Markdown All in One
   - Markdown Preview Enhanced

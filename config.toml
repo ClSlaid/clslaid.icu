@@ -60,7 +60,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
   # logoTitle = "$F(\\omega)=\\int_{-\\infty}^{\\infty}{f(t)e^{j{\\omega}t}}{\\rm{d}}t$"        # default: the title value    # 默认值: 上面设置的title值
-  logoTitle = "$X_{k}=\\sum\\limits_{n=0}^{N-1}{x_{n}e^{-j2{\\pi}k\\frac{n}{N}}}$"        # default: the title value    # 默认值: 上面设置的title值
+  # logoTitle = "$X_{k}=\\sum\\limits_{n=0}^{N-1}{x_{n}e^{-j2{\\pi}k\\frac{n}{N}}}$"        # default: the title value    # 默认值: 上面设置的title值
+  logoTitle = "Cl | Naïve" 
   keywords = ["Hugo", "ClSlaid","Blog"]
   description = "ClSlaid's Personal Blog."
 
