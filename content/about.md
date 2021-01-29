@@ -31,3 +31,7 @@ menu: "main"
 ## 膜
 
 迟先生：[skyzh](https://skyzh.dev)
+
+<div class="align-center">
+<img src="../asuka.jpg" width="40%" alt="my profile pic is asuka" title='「chance...」'></img>
+</div>

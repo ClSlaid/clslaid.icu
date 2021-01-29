@@ -6,7 +6,16 @@
     <description>Recent content in Posts on ClSlaid.icu | can you save me?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Jan 2021 12:46:44 +0800</lastBuildDate><atom:link href="https://clslaid.icu/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jan 2021 16:48:09 +0800</lastBuildDate><atom:link href="https://clslaid.icu/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何为 hugo-theme-even 提供 mermaid 支持</title>
+      <link>https://clslaid.icu/post/add_mermaid_support_to_even_theme/</link>
+      <pubDate>Fri, 29 Jan 2021 16:48:09 +0800</pubDate>
+      
+      <guid>https://clslaid.icu/post/add_mermaid_support_to_even_theme/</guid>
+      <description>sequenceDiagram participant 主机A participant 主机B 主机A -&amp;gt;&amp;gt; 主机B: 发送 SYN (seq = x) Note right of 主机B: 收到 SYN (seq = x) 主机B --&amp;gt;&amp;gt; 主机A: 发送 SYN (seq = y)&amp;lt;br/&amp;gt;发送 ACK (ack = x+1) Note Left</description>
+    </item>
+    
     <item>
       <title>new_home</title>
       <link>https://clslaid.icu/post/new_home/</link>
