@@ -96,7 +96,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   katex = true            # use katex rather than latex?
                           # delimiter $ ... $  $$ ... $$ and \( ... \) is enabled by default.
 
-  mathAllPages = true       # render math on all pages, e.g. archives.
+  mathAllPages = false       # render math on all pages, e.g. archives.
                             # this enables you showing math equations in logo title.
                             # works on both mathjax and katex.
 
