@@ -14,7 +14,7 @@ draft: false
 
 数学公式：
 $$
-    F(f) = \int_{-\infty}^{\infty}{f(t)e^{j2{\pi}ft}}{\rm d}t
+    F(f) = \int_{-\infty}^{\infty}{f(t)e^{-j2{\pi}ft}}{\rm d}t
 $$
 
 代码演示：
