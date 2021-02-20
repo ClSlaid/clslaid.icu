@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>6.S081 lab1 write up - ClSlaid.icu | can you save me?</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ClSlaid" /><meta name="description" content="Preface It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.
+After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.
+The hardest thing I came up with is not What to do but How to do and Why doing so works." /><meta name="keywords" content="Hugo, ClSlaid, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
+
+
+<link rel="canonical" href="https://clslaid.icu/post/6s081-a/" />
+<link rel="apple-touch-icon" sizes="180x180" href='/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='/favicon-16x16.png'>
+<link rel="manifest" href='/manifest.json'>
+<link rel="mask-icon" href='/safari-pinned-tab.svg' color="#5bbad5">
+
+
+
+<link href="/sass/main.min.23a0753b3278342d10ae56473712a98c44a8cb13d2457d89a02fdac8b2620ee6.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+<meta property="og:title" content="6.S081 lab1 write up" />
+<meta property="og:description" content="Preface It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.
+After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.
+The hardest thing I came up with is not What to do but How to do and Why doing so works." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://clslaid.icu/post/6s081-a/" />
+<meta property="article:published_time" content="2021-02-18T18:38:51+08:00" />
+<meta property="article:modified_time" content="2021-01-31T18:52:25+08:00" />
+<meta itemprop="name" content="6.S081 lab1 write up">
+<meta itemprop="description" content="Preface It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.
+After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.
+The hardest thing I came up with is not What to do but How to do and Why doing so works.">
+<meta itemprop="datePublished" content="2021-02-18T18:38:51+08:00" />
+<meta itemprop="dateModified" content="2021-01-31T18:52:25+08:00" />
+<meta itemprop="wordCount" content="903">
+
+
+
+<meta itemprop="keywords" content="Operating System," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="6.S081 lab1 write up"/>
+<meta name="twitter:description" content="Preface It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.
+After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.
+The hardest thing I came up with is not What to do but How to do and Why doing so works."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Cl | Naïve</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Cl | Naïve</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">6.S081 lab1 write up</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-02-18 </span>
+        <div class="post-category">
+            <a href="/categories/6.s081/"> 6.S081 </a>
+            </div>
+          <span class="more-meta"> 903 Wörter </span>
+          <span class="more-meta"> 5 Min Lesezeit </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Inhalt</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#preface">Preface</a></li>
+        <li><a href="#lab-utils">Lab: Utils</a>
+          <ul>
+            <li><a href="#sleep">sleep</a></li>
+            <li><a href="#pingpong--primes">pingpong &amp; primes</a></li>
+            <li><a href="#find">find</a></li>
+            <li><a href="#xargs">xargs</a></li>
+          </ul>
+        </li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="preface">Preface</h2>
+<p>It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.</p>
+<p>After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.</p>
+<p>The hardest thing I came up with is not <em>What</em> to do but <em>How</em> to do and <em>Why</em> doing so works.</p>
+<h2 id="lab-utils">Lab: Utils</h2>
+<p>In this lab, I am assigned to finish a few UNIX utilities. It is not that difficult. All system calls can be found in <code>user/user.h</code>.</p>
+<p>Always check about hints before solving a task.</p>
+<h3 id="sleep">sleep</h3>
+<p>As a single program running on OS, you cannot count on yourself to <em>sleep</em> an exact period of time. Instead of using dead loops, you should use <code>system call</code>s to acquire aid from the kernel.</p>
+<p>After referring to the xv6 guide book, I find a system call named <code>sleep()</code>, which I need to do next is to pack it up into a user program.</p>
+<p>How to write a user program for xv6? By looking up other programs, I got ambiguous knowledge about it.</p>
+<p>All user programs start executing from their <code>main()</code> functions, arguments from console passed to the program from string array <code>argv</code>. <code>argc</code> is the number of arguments in <code>argv</code>.</p>
+<pre><code class="language-bash"># console input
+sleep 114514
+</code></pre>
+<pre><code class="language-C">// console parsed arguments and pased it to the program.
+// be await that argv[0] is the program name.
+int argc = 2;
+char *argv[] = {&quot;sleep&quot;, &quot;114514&quot;};
+</code></pre>
+<p>Programs can also take user inputs from <code>stdin</code>, whose <code>fd</code> is normally 0. It can be redirected to files or console outputs. <code>scanf()</code> in <code>stdio.h</code> takes input from it.</p>
+<p>And functions like <code>printf()</code> writes data to <code>stdout</code>, whose <code>fd</code> is normally 1. It can also be redirected to files.</p>
+<p>If there is an error in your program and you want to print a message about what is going on, you should print it to <code>stderr</code> whose <code>fd</code> is normally 2. <code>fprintf()</code> is used for this purpose.</p>
+<p>So what we need to do is to pack up the system call <code>sleep()</code> with a program realized in <code>user/sleep.c</code>, and add it to <code>Makefile</code>. The program should take its argument from <code>argv</code>.</p>
+<h3 id="pingpong--primes">pingpong &amp; primes</h3>
+<p>As I know, communicating between processes have mainly two ways:</p>
+<ul>
+<li>
+<p>Share memory to communicate</p>
+<p>Using buffer or file that could be accessed by both sender and receiver. However, this usually leads to troubling issues like data racing that you should deal with it carefully. We call the buffer/file <a href="https://en.wikipedia.org/wiki/Critical_section"><code>Critical Section</code></a>. And there are mechanisms like <code>mutex</code> and <code>semaphore</code> to prevent data racing or dirty data issues.</p>
+</li>
+<li>
+<p>Communicate with pipes, channels</p>
+<p>Using pipes is much easier than dealing with shared memory in my point of view. When reading from an empty pipe, the process will be blocked until there are new data flushed in pipes or pipes being closed.</p>
+<p>Pipes can be provided by OS, and some modern languages like <code>Go</code> have a language level support for pipes (referred as <code>ch</code>(channel) in <code>Go</code>).</p>
+</li>
+</ul>
+<p>As for <code>pingpong</code>, we can solve it by using 2 processes connected by 2 pipes, but be careful that if 2 process use <code>printf()</code> at the same time, the output will be messed up.</p>
+<pre><code class="language-mermaid">graph LR
+    parent{{parent}} -- ping --&gt; child{{child}}
+    child -- pong --&gt; parent
+</code></pre>
+<p>As for primes, things get tricky a little. However, the <a href="https://swtch.com/~rsc/thread/">link</a> in the problem description had almost told you the answer.</p>
+<p>I complete the task by realizing a <code>void subprime(int* r_end)</code> function, which works like below:</p>
+<blockquote>
+<p>I will change the graph&rsquo;s engine into flowchart.js someday later&hellip;</p>
+</blockquote>
+<pre><code class="language-mermaid">graph TD
+    A[&quot;void subprimt(int* read_end)&quot;] --&gt; B[&quot;int div &lt;- read_end;&lt;br&gt;print div&quot;]
+    B --&gt; C1{&quot;Is pipe's write end closed?&quot;}
+    C1 -- yes --&gt; G[&quot;return&quot;]
+    C1 -- no --&gt; C[&quot;int following &lt;- read_end;&quot;]
+    C --&gt; D[&quot;pipe p;&lt;br&gt; fork: subprime(p[READEND]);&quot;]
+    D --&gt; E{&quot;following % div == 0 ?&quot;}
+    E -- yes --&gt; C1
+    E -- no --&gt; F[&quot;p[WRITEEND] &lt;- following&quot;] --&gt; C1
+</code></pre>
+<h3 id="find">find</h3>
+<p>Just by adopting <code>user/ls.c</code>, you can get a medium well <code>find</code> program.</p>
+<p>Files and directories in Linux are referred to as <code>inode</code>s. Most of the file system layouts are like a tree with files/directories as nodes in it.</p>
+<pre><code class="language-mermaid">graph TD
+    r --&gt; run[&quot;run&quot;]
+    r[&quot;/&quot;] --&gt; usr[&quot;usr&quot;]
+    r --&gt; var[&quot;var&quot;]
+    r --&gt; rot[&quot;other files/dirs...&quot;]
+    usr --&gt; lib[&quot;lib&quot;]
+    usr --&gt; bin[&quot;bin&quot;]
+    usr --&gt; uot[&quot;other files/dirs...&quot;]
+    bin --&gt; grep{{grep}}
+    bin --&gt; cat{{cat}}
+    bin --&gt; bot[&quot;other files/dirs...&quot;]
+</code></pre>
+<p>To access files in directories, you can use a <code>fd</code> point to the path, and use <code>read()</code> to read files/dirs under the directory, the data structure used to store child files/directories is <code>struct dirent</code>.</p>
+<p>Now that you are assigned to develop a <code>find</code> program, you should use the function on child directories, so that the program can look up recursively.</p>
+<h3 id="xargs">xargs</h3>
+<p>In fact, this task is pretty simple, but the way <code>xargs</code> works come out to be a little hard to understand.</p>
+<p>The way <code>xargs</code> works can be concluded into pseudo code like below:</p>
+<pre><code class="language-python"># string argv[]
+stdin = input()
+stdv = stdin.split()
+for arg in stdv:
+    arg_full = list.append(argv, arg)
+    arg_full.pop(0)
+
+    fork(
+        # argv[0] is &quot;xargs&quot;, which should be dropped.
+        execute(arg_full)
+    )
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Working on labs did give me an ambiguous impression about multithread programming, file systems and OS programming. There are still many jobs to be done.</p>
+<blockquote>
+<p>My lab repository is -&gt; <a href="https://github.com/ClSlaid/6.S081">here</a>.</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Autor</span>
+    <span class="item-content">ClSlaid</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">letzte Änderung</span>
+    <span class="item-content">
+        2021-01-31
+        <a href="https://github.com/ClSlaid/clslaid.icu.git/commit/e9e3741ae69baaf3b6fac8de5b3d78091cd758fc" title="commit 6.SO81 lab1 write up.">(e9e3741)</a>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">Lizenz</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/operating-system/">Operating System</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E4%BB%8C/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">浅谈“人上人”</span>
+            <span class="prev-text nav-mobile">vorher</span>
+          </a>
+        <a class="next" href="/post/add_mermaid_support_to_even_theme/">
+            <span class="next-text nav-default">俺如何为 hugo-theme-even 提供 mermaid 支持</span>
+            <span class="next-text nav-mobile">nächstes</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="ClSlaid/ClSlaid.icu"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cailue@bupt.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/ClSlaid" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://github.com/ClSlaid" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/qing-qing-zi-jin-77-54" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://clslaid.icu/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>ClSlaid</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script>alert(</script>
+  <script>
+    
+      window.mermaidOptions = {'securityLevel': 'loose', 'theme': 'neutral'};
+    
+  </script><script src="https://cdn.jsdelivr.net/npm/mermaid@8.9.0/dist/mermaid.min.js" integrity="sha256-kQ53yVPHQX/WEUj8YbF1YkABvdPG6XfiKPyzBgf3vUI=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script>window.sequenceDiagramsOptions = {theme: 'hand', 'font-family':`ZCOOL KuaiLe`};</script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.45d457bdb91d1d1804d75e522a50ea3ef1c78b2eda3afd5591eefe63a875f2e3.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body,{
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: true},
+            {left: '\\(', right: '\\)', display: false},
+          ]
+        }
+        );"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

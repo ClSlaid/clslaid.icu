@@ -18,4 +18,4 @@ categories: ["6.824"]
 
 ### MapReduce 集群的基本结构
 
-如果
+待续...

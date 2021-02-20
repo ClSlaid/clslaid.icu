@@ -1,66 +1,16 @@
-<?xml-stylesheet type="text/xsl" href="https://clslaid.icu/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <url>
-    <loc>https://clslaid.icu/</loc>
-    <lastmod>2021-01-30T00:39:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <sitemap>
+    <loc>https://clslaid.icu/en/sitemap.xml</loc>
+    
+  </sitemap>
   
-  <url>
-    <loc>https://clslaid.icu/post/</loc>
-    <lastmod>2021-01-30T00:39:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <sitemap>
+    <loc>https://clslaid.icu/zh-cn/sitemap.xml</loc>
+    
+      <lastmod>2021-02-20T22:10:41+08:00</lastmod>
+    
+  </sitemap>
   
-  <url>
-    <loc>https://clslaid.icu/tags/</loc>
-    <lastmod>2021-01-30T00:39:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://clslaid.icu/post/add_mermaid_support_to_even_theme/</loc>
-    <lastmod>2021-01-30T00:39:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://clslaid.icu/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-01-30T00:39:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://clslaid.icu/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2021-01-30T00:39:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://clslaid.icu/post/new_home/</loc>
-    <lastmod>2021-01-30T00:15:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://clslaid.icu/about/</loc>
-    <lastmod>2021-01-30T00:15:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://clslaid.icu/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-</urlset>
+</sitemapindex>

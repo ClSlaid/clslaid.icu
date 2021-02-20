@@ -1,38 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ClSlaid.icu | can you save me?</title>
-    <link>https://clslaid.icu/</link>
-    <description>Recent content on ClSlaid.icu | can you save me?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jan 2021 16:48:09 +0800</lastBuildDate><atom:link href="https://clslaid.icu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>俺如何为 hugo-theme-even 提供 mermaid 支持</title>
-      <link>https://clslaid.icu/post/add_mermaid_support_to_even_theme/</link>
-      <pubDate>Fri, 29 Jan 2021 16:48:09 +0800</pubDate>
-      
-      <guid>https://clslaid.icu/post/add_mermaid_support_to_even_theme/</guid>
-      <description>sequenceDiagram participant 主机A participant 主机B 主机A -&amp;gt;&amp;gt; 主机B: 发送 SYN (seq = x) Note right of 主机B: 收到 SYN (seq = x) 主机B --&amp;gt;&amp;gt; 主机A: 发送 SYN (seq = y)&amp;lt;br/&amp;gt;发送 ACK (ack = x+1) Note Left</description>
-    </item>
-    
-    <item>
-      <title>new_home</title>
-      <link>https://clslaid.icu/post/new_home/</link>
-      <pubDate>Wed, 27 Jan 2021 12:46:44 +0800</pubDate>
-      
-      <guid>https://clslaid.icu/post/new_home/</guid>
-      <description>迁移 直接跑路 又一次一时兴起, 这次惨遭毒手的是 vercel + github + hugo. 不说了, 静态博客真香, LNMP 还是不适合懒人. 新博客功能演示 数学公式： $$ F(f) = \int_{-\infty}^{\infty}{f(t)e^{-j2{\pi}ft}}{\rm d}t $$ 代码演示：</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://clslaid.icu/about/</link>
-      <pubDate>Wed, 27 Jan 2021 01:43:11 +0800</pubDate>
-      
-      <guid>https://clslaid.icu/about/</guid>
-      <description>who am I? 19 岁，是老垃圾👾。 经历 2018～2022: 就读于北京邮电大学。 友情链接 点击展开 🐟 大佬：Name1e5s Blog 缺氧甲醛：甲醛的技术博客 学分学</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ClSlaid.icu | Can you save me?</title>
+        <link>https://clslaid.icu/</link>
+        <description>ClSlaid | Can you save me?</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cailue@bupt.edu.cn (ClSlaid)</managingEditor>
+            <webMaster>cailue@bupt.edu.cn (ClSlaid)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Feb 2021 22:10:41 &#43;0800</lastBuildDate>
+            <atom:link href="https://clslaid.icu/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>浅谈“人上人”</title>
+    <link>https://clslaid.icu/%E4%BB%8C/</link>
+    <pubDate>Sat, 20 Feb 2021 22:10:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://clslaid.icu/%E4%BB%8C/</guid>
+    <description><![CDATA[注意：技术无关贴 转起来 上班族们的年假已经放完了，但是俺滴寒假还没有。在如此惠风和畅，春暖人间的好时节，喊起几个狐朋狗友开黑连麦，骚话连篇，🐎]]></description>
+</item><item>
+    <title>6.S081 lab1 write up</title>
+    <link>https://clslaid.icu/6s081-a/</link>
+    <pubDate>Thu, 18 Feb 2021 18:38:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://clslaid.icu/6s081-a/</guid>
+    <description><![CDATA[Preface It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.
+After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.
+The hardest thing I came up with is not What to do but How to do and Why doing so works.]]></description>
+</item><item>
+    <title>俺如何为 hugo-theme-even 提供 mermaid 支持</title>
+    <link>https://clslaid.icu/add_mermaid_support_to_even_theme/</link>
+    <pubDate>Fri, 29 Jan 2021 16:48:09 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://clslaid.icu/add_mermaid_support_to_even_theme/</guid>
+    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 sequenceDiagram participant 主机A participant 主机B 主机A -&gt;&gt; 主机B: 发送 SYN (seq = x) Note right of 主机B: 收到 SYN (seq = x) 主机B --&gt;&gt; 主机A: 发送 SYN (seq = y)&lt;br/&g]]></description>
+</item><item>
+    <title>new_home</title>
+    <link>https://clslaid.icu/new_home/</link>
+    <pubDate>Wed, 27 Jan 2021 12:46:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://clslaid.icu/new_home/</guid>
+    <description><![CDATA[迁移 直接跑路 又一次一时兴起, 这次惨遭毒手的是 vercel + github + hugo. 不说了, 静态博客真香, LNMP 还是不适合懒人. 新博客功能演示 数学公式： $$ F(f) = \int_{-\infty}^{\infty}{f(t)e^{-j2{\pi}ft}}{\rm d}t $$ 代码演示：]]></description>
+</item></channel>
 </rss>

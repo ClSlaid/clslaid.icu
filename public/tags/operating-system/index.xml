@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operating System on ClSlaid.icu | can you save me?</title>
+    <link>https://clslaid.icu/tags/operating-system/</link>
+    <description>Recent content in Operating System on ClSlaid.icu | can you save me?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 18 Feb 2021 18:38:51 +0800</lastBuildDate><atom:link href="https://clslaid.icu/tags/operating-system/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>6.S081 lab1 write up</title>
+      <link>https://clslaid.icu/post/6s081-a/</link>
+      <pubDate>Thu, 18 Feb 2021 18:38:51 +0800</pubDate>
+      
+      <guid>https://clslaid.icu/post/6s081-a/</guid>
+      <description>Preface It is considered to be important to have an overview of Operating Systems. However, due to my laziness and the radio-building-oriented subject I major in, I hardly complete any courses about OSs.
+After the spring festival, feeling still knowing little about OS and losing ability on computer programming, I picked up xv6 labs from MIT 6.S081 courses again, hoping by coping with them will be of help.
+The hardest thing I came up with is not What to do but How to do and Why doing so works.</description>
+    </item>
+    
+  </channel>
+</rss>
