@@ -28,7 +28,7 @@ The hardest thing I came up with is not What to do but How to do and Why doing s
     <pubDate>Fri, 29 Jan 2021 16:48:09 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://clslaid.icu/add_mermaid_support_to_even_theme/</guid>
-    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 sequenceDiagram participant 主机A participant 主机B 主机A -&gt;&gt; 主机B: 发送 SYN (seq = x) Note right of 主机B: 收到 SYN (seq = x) 主机B --&gt;&gt; 主机A: 发送 SYN (seq = y)&lt;br/&g]]></description>
+    <description><![CDATA[如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不涉及到图片存储。存储]]></description>
 </item><item>
     <title>new_home</title>
     <link>https://clslaid.icu/new_home/</link>

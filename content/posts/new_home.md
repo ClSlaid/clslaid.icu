@@ -48,7 +48,7 @@ main(int *argc, char **argv)
 }
 ```
 
-flow chart:
+flow chart: (unsupported)
 
 ```flow
     st=>start: Start
@@ -61,7 +61,7 @@ flow chart:
     cond(no)->op
 ```
 
-sequence diagrams:
+sequence diagrams: (unsupported)
 
 ```sequence
     Client->Server: 你有 10492 的资源嘛？
@@ -71,7 +71,7 @@ sequence diagrams:
 
 mermaid: 
 
-```mermaid
+{{<mermaid>}}
 graph LR
 A(面试)-->B(笔试)
 A-->C(面试)
@@ -79,4 +79,4 @@ C-->C1(数据结构与算法*)
 C-->C2(计算机网络)
 C-->C3(操作系统Linux)
 B-->B1(数据结构与算法*)
-```
+{{</mermaid>}}

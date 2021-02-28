@@ -5,7 +5,7 @@ draft: false
 tags: ["折腾", "前端"]
 ---
 
-```mermaid
+{{<mermaid>}}
 sequenceDiagram
 participant 主机A
 participant 主机B
@@ -16,7 +16,8 @@ Note Left of 主机A: 收到 SYN (seq = y)<br/>收到 ACK (ack = x+1)
 主机A ->> 主机B: 发送 ACK (ack = y+1)
 Note right of 主机B: 收到 ACK (ack = y+1)
 Note over 主机A, 主机B: TCP 连接建立成功
-```
+{{</mermaid >}}
+
 
 如上是一个利用 `mermaid` 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 `mermaid` 绘图具备诸多优点：
 
@@ -25,6 +26,12 @@ Note over 主机A, 主机B: TCP 连接建立成功
 3. 网站数据传输时是使用 `mermaid` 源码，而不是图片，可以有效减少网站加载过程产生的流量耗费。
 
 ## 如何为你的 `Hugo` 博客引入 `mermaid` 支持？
+
+{{<admonition tip "贴士" true>}}
+虽然由于 even theme 更新过慢，似乎久已无更多维护，因此本站已经开始使用 LoveIt 作为主题。
+
+但是对于 even theme 而言，本方法应当依旧适用。
+{{</admonition>}}
 
 对于这一点，俺可以说前人之述备矣。反手就是一堆参考资料：
 
@@ -58,7 +65,7 @@ Note over 主机A, 主机B: TCP 连接建立成功
 
 通过阅读 `mermaid` 的 API 咱们可以得知 `mermaidAPI` 渲染 `mermaid` 图形的大致流程：
 
-```mermaid
+{{<mermaid>}}
 sequenceDiagram
 participant mermaid
 Note over 网页内容: MarkDown 文件
@@ -74,7 +81,7 @@ mermaid ->> 网页内容: 替换相应内容
 Note over 网页内容: 内容被替换为 SVG
 其他支持 -->> 网页内容: 其他内容渲染
 Note over 网页内容: 渲染完成的 HTML 文件
-```
+{{</mermaid>}}
 
 上述的**特定标签**是指\<div class=\"mermaid">的 `HTML` 标签。通过检查页面元素，咱们会发现如今的大部分博客将代码块渲染成如下式样：
 
@@ -98,7 +105,9 @@ Note over 网页内容: 渲染完成的 HTML 文件
 
 ## 在 even theme 中的实现
 
-> 注意： 下文中的 “/” 目录代表 even theme 项目的根目录而不是 *nix 文件系统的 root.
+{{<admonition warning "注意">}}
+注意： 下文中的 “/” 目录代表 even theme 项目的根目录而不是 *nix 文件系统的 root.
+{{</admonition>}}
 
 本博客使用的是 even theme. 但是俺相信参照本文在其他博客中进行实现也会大差不差。
 

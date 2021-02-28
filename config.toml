@@ -671,7 +671,7 @@ enableEmoji = true
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
         appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
         placeholder = ""
@@ -764,7 +764,7 @@ enableEmoji = true
     cursorSpeed = 1000
     # character used for the cursor (HTML format is supported)
     # 光标的字符 (支持 HTML 格式)
-    cursorChar = "|"
+    cursorChar = "_"
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
     duration = -1
