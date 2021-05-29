@@ -7,11 +7,19 @@ menu: "main"
 
 # who am I?
 
-19 岁，是老垃圾👾。
+20 岁，是老垃圾👾。
 
 ## 经历
 
-2018～2022: 就读于北京邮电大学。
+### 教育
+
+- 2018 ~ 2022: 北京邮电大学
+
+### 职业
+
+- 2021-04 ~ 2021-08
+
+    PingCAP 北京：数据库内核开发实习生
 
 ## 友情链接
 <details>
@@ -35,5 +43,11 @@ ayamir: [ayamir's blog](https://ayamir.github.io)
 迟先生：[skyzh](https://skyzh.dev)
 
 <div class="align-center">
-<img src="../asuka.jpg" width="40%" alt="my profile pic is asuka" title='「chance...」'></img>
+<img src="../asuka.jpg" width="40%" alt="my profile pic is asuka from evangelion!" title='「chance...」'></img>
 </div>
+
+## 神秘链接
+
+<a href="https://www.bilibili.com/video/BV1GJ411x7h7?share_source=copy_web">🔗点击以进行一对一免费咨询 [国内通道]</a>
+
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">🔗点击以进行一对一免费咨询 [海外通道]</a>

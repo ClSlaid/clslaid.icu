@@ -351,7 +351,7 @@ enableEmoji = true
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)
-          disclaimer = "网站托管欧美大陆，面向世界人民服务，受法律保护。"
+          disclaimer = "Across the great wall we can reach every corner of the world."
         # 主页文章列表
         [languages.zh-cn.params.home.posts]
           enable = true
@@ -433,7 +433,7 @@ enableEmoji = true
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = "https://github.com/ClSlaid/clsalid.icu"
+  gitRepo = "https://github.com/ClSlaid/clslaid.icu"
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
@@ -461,14 +461,14 @@ enableEmoji = true
       logo = ""
       # title name
       # 标题名称
-      name = "ClSlaid.icu"
+      name = "<a href='/'>ClSlaid.icu</a>"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       # pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
-	  pre = "❤️"
+	    pre = "<a href='https://www.bilibili.com/video/BV1GJ411x7h7?share_source=copy_web'>$</a>"
       # you can add extra information after the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-      post = ""
+      post = "<a href='/'>♨️</a>"
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
       typeit = true
