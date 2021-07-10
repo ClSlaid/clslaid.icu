@@ -7,3 +7,6 @@
 [submodule "themes/LoveIt"]
 	path = themes/LoveIt
 	url = https://github.com/dillonzq/LoveIt.git
+[submodule "themes/FeelIt"]
+	path = themes/FeelIt
+	url = https://github.com/ClSlaid/FeelIt.git

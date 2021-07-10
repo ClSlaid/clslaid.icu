@@ -4,7 +4,7 @@ baseURL = "https://clslaid.icu"
 defaultContentLanguage = "zh-cn"
 # theme
 # 主题
-theme = "LoveIt"
+theme = "FeelIt"
 # themes directory
 # 主题目录
 themesDir = "./themes"
@@ -268,13 +268,13 @@ enableEmoji = true
         url = "/categories/"
         title = ""
         weight = 3
-      [[languages.zh-cn.menu.main]]
-        identifier = "documentation"
-        pre = "📜"
-        name = "文档"
-        url = "/categories/documentation/"
-        title = ""
-        weight = 4
+      # [[languages.zh-cn.menu.main]]
+        # identifier = "documentation"
+        # pre = "📜"
+        # name = "文档"
+        # url = "/categories/documentation/"
+        # title = ""
+        # weight = 4
       [[languages.zh-cn.menu.main]]
         identifier = "about"
         pre = "👴"
@@ -299,7 +299,7 @@ enableEmoji = true
       # 应用图标配置
       [languages.zh-cn.params.app]
         # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-        title = "LoveIt"
+        title = "FeelIt"
         # 是否隐藏网站图标资源链接
         noFavicon = false
         # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
@@ -427,7 +427,7 @@ enableEmoji = true
 [params]
   # LoveIt theme version
   # LoveIt 主题版本
-  version = "0.2.X"
+  version = "1.0.X"
   # site default theme ("light", "dark", "auto")
   # 网站默认主题 ("light", "dark", "auto")
   defaultTheme = "auto"
