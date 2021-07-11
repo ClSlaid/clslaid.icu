@@ -1,7 +1,8 @@
 ---
 title: "Bomb Lab"
 date: 2021-07-10T14:38:43+08:00
-draft: true
+draft: false
+tags: ["折腾", "CSAPP", "Reversing", "Bomb Lab"]
 ---
 ## 前言
 
@@ -472,3 +473,9 @@ do{
 可知，我们需要将字符串 stk_str 和 0x40245e 处的字符串相比较，可知 0x40245e 处的字符串为“flyers”。在字符串里的偏移量分别为 9, 15, 14, 5, 6, 7。查阅 ASCII 码表可以得到一个结果“IONEFG”，代入检查结果。
 
 > Good work!  On to the next...
+
+## Phase_6
+
+这个 Phase 真的好长长长长长长长长长啊！
+
+明天更...
