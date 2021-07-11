@@ -55,7 +55,9 @@ objdump -D ./bomb > bomb.asm
 
 可以使用 ~~radare2~~ CGDB 进行拆弹。CGDB 的资料[在此](https://cgdb.github.io/docs/cgdb-split.html)——当然如果你的英语和我一样烂的话也可以看[中文版](https://github.com/leeyiw/cgdb-manual-in-chinese)
 
-## Phase 1
+也可以使用 `radare2` 或者 `rizin` 拆弹，本文后半部分使用 `cutter` （`rizin` 的图形前端）拆弹。
+
+## Phase 1——热身
 
 > Welcome to my fiendish little bomb. You have 6 phases with which to blow yourself up. Have a nice day!
 
@@ -90,7 +92,7 @@ objdump -D ./bomb > bomb.asm
 
 > Phase 1 defused. How about the next one?
 
-## Phase 2
+## Phase 2——参数顺序与参数压栈
 
 看看 ASM？Emmm?
 
@@ -198,7 +200,7 @@ int sscanf(const char *str, const char *format, ...)
 | %rsp + 0x10 |num5| 16 |
 | %rsp + 0x14 |num6| 32 |
 
-所以 flag 为：
+所以 flag 为：(高亮部分)
 
 ```text
 1 2 4 8 16 32
@@ -206,4 +208,169 @@ int sscanf(const char *str, const char *format, ...)
 
 > That's number 2.  Keep going!
 
-## Phase_3
+## Phase_3——switch
+
+> 在这里开始使用 cutter 进行拆弹工作
+
+```nasm
+0000000000400f43 <phase_3>:
+  400f43:	48 83 ec 18          	sub    $0x18,%rsp
+  400f47:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx
+  400f4c:	48 8d 54 24 08       	lea    0x8(%rsp),%rdx
+  400f51:	be cf 25 40 00       	mov    $0x4025cf,%esi
+  400f56:	b8 00 00 00 00       	mov    $0x0,%eax
+  400f5b:	e8 90 fc ff ff       	call   400bf0 <__isoc99_sscanf@plt>
+  400f60:	83 f8 01             	cmp    $0x1,%eax
+  400f63:	7f 05                	jg     400f6a <phase_3+0x27>
+  400f65:	e8 d0 04 00 00       	call   40143a <explode_bomb>
+```
+
+利用 GDB 查看 $0x4025cf 显示 "%d %d"，显然本题读入两个数字到 %rsp+0x8 和 %rsp+0xc。令这两数分别为 num1 和 num2。
+
+```NASM
+  400f6a:	83 7c 24 08 07       	cmpl   $0x7,0x8(%rsp)
+  400f6f:	77 3c                	ja     400fad <phase_3+0x6a>
+  400f71:	8b 44 24 08          	mov    0x8(%rsp),%eax
+  400f75:	ff 24 c5 70 24 40 00 	jmp    *0x402470(,%rax,8)
+  400f7c:	b8 cf 00 00 00       	mov    $0xcf,%eax
+  400f81:	eb 3b                	jmp    400fbe <phase_3+0x7b>
+  400f83:	b8 c3 02 00 00       	mov    $0x2c3,%eax
+  400f88:	eb 34                	jmp    400fbe <phase_3+0x7b>
+  400f8a:	b8 00 01 00 00       	mov    $0x100,%eax
+  400f8f:	eb 2d                	jmp    400fbe <phase_3+0x7b>
+  400f91:	b8 85 01 00 00       	mov    $0x185,%eax
+  400f96:	eb 26                	jmp    400fbe <phase_3+0x7b>
+  400f98:	b8 ce 00 00 00       	mov    $0xce,%eax
+  400f9d:	eb 1f                	jmp    400fbe <phase_3+0x7b>
+  400f9f:	b8 aa 02 00 00       	mov    $0x2aa,%eax
+  400fa4:	eb 18                	jmp    400fbe <phase_3+0x7b>
+  400fa6:	b8 47 01 00 00       	mov    $0x147,%eax
+  400fab:	eb 11                	jmp    400fbe <phase_3+0x7b>
+  400fad:	e8 88 04 00 00       	call   40143a <explode_bomb>
+  400fb2:	b8 00 00 00 00       	mov    $0x0,%eax
+  400fb7:	eb 05                	jmp    400fbe <phase_3+0x7b>
+  400fb9:	b8 37 01 00 00       	mov    $0x137,%eax
+  400fbe:	3b 44 24 0c          	cmp    0xc(%rsp),%eax
+  400fc2:	74 05                	je     400fc9 <phase_3+0x86>
+  400fc4:	e8 71 04 00 00       	call   40143a <explode_bomb>
+  400fc9:	48 83 c4 18          	add    $0x18,%rsp
+  400fcd:	c3                   	ret    
+```
+
+首先让 num1 和 0x7 进行比较，如果大于 0x7 的话炸弹会引爆；如果不大于7，那么将会来到一个跳转表。
+
+我们复习书上的图 3.3 可以知道 0x400f5 处的地址为 0x402470 + num1*8，利用 cutter 查看对应地方的值，然后人肉反汇编，很快啊！
+
+```C
+int temp = num1; // temp in %rax
+switch(c){
+    case 0: { // 0d4198268  0x400f7c
+        temp = 0xcf;
+        break;
+    }
+    case 1: { // 0d4198329 0x400fb9
+        temp = 0x137;
+        break;
+    }
+    case 2: { // 0d4198275 0x400f83
+        temp = 0x2c3;
+        break;
+    }
+    case 3: { // 0d4198282 0x400f8a
+        temp = 0x100;
+        break;
+    }
+    case 4: { // 0d4198289 0x400f91
+        temp = 0x185;
+        break;
+    }
+    case 5: { // 0d4198296 0x400f98
+        temp = 0xce;
+        break;
+    }
+    case 6: { // 0d4198303 0x400f9f
+        temp = 0x2aa;
+        break;
+    }
+    case 7: { // 0d4198310 0x400fa6
+        temp = 0x147;
+        break;
+    }
+}
+```
+
+出跳转表后，来到 0x400fbe，接下来比较 temp 与 num2，倘若 temp 与 num2 相等则拆除成功。结果集那就很显然了嘛：
+
+$$\lbrace \langle 0, 207 \rangle,
+\langle 1, 311 \rangle,
+\langle 2, 707 \rangle,
+\langle 3, 256 \rangle,
+\langle 4, 289 \rangle,
+\langle 5, 206 \rangle,
+\langle 6, 682 \rangle,
+\langle 7, 327 \rangle \rbrace $$
+
+> Halfway there!
+
+## Phase_4——递归
+
+到了这里差不多都熟练起来了罢。
+
+```NASM
+000000000040100c <phase_4>:
+  40100c:	48 83 ec 18          	sub    $0x18,%rsp
+  401010:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx
+  401015:	48 8d 54 24 08       	lea    0x8(%rsp),%rdx
+  40101a:	be cf 25 40 00       	mov    $0x4025cf,%esi
+  40101f:	b8 00 00 00 00       	mov    $0x0,%eax
+  401024:	e8 c7 fb ff ff       	call   400bf0 <__isoc99_sscanf@plt>
+  401029:	83 f8 02             	cmp    $0x2,%eax
+  40102c:	75 07                	jne    401035 <phase_4+0x29>
+  40102e:	83 7c 24 08 0e       	cmpl   $0xe,0x8(%rsp)
+  401033:	76 05                	jbe    40103a <phase_4+0x2e>
+  401035:	e8 00 04 00 00       	call   40143a <explode_bomb>
+  ```
+
+稍有常识的人，一眼就能看出在这里输入了两个数 num1（%rsp+0x8） 和 num2（%rsp+0xc）；num1 <= 0xe。
+
+  ```NASM
+  40103a:	ba 0e 00 00 00       	mov    $0xe,%edx
+  40103f:	be 00 00 00 00       	mov    $0x0,%esi
+  401044:	8b 7c 24 08          	mov    0x8(%rsp),%edi
+  401048:	e8 81 ff ff ff       	call   400fce <func4>
+  40104d:	85 c0                	test   %eax,%eax
+  40104f:	75 07                	jne    401058 <phase_4+0x4c>集合集合
+  401051:	83 7c 24 0c 00       	cmpl   $0x0,0xc(%rsp)
+  401056:	74 05                	je     40105d <phase_4+0x51>
+  401058:	e8 dd 03 00 00       	call   40143a <explode_bomb>
+  40105d:	48 83 c4 18          	add    $0x18,%rsp
+  401061:	c3                   	ret    
+```
+
+在这里可以知道调用了 func4(num1, 0x0, 0xe)，要求返回值必须为 0；同时可以知道 num2 的值只能是 0。接下来查看 func4 的具体内容。
+
+```nasm
+0000000000400fce <func4>:
+  400fce:	48 83 ec 08          	sub    $0x8,%rsp
+  400fd2:	89 d0                	mov    %edx,%eax
+  400fd4:	29 f0                	sub    %esi,%eax
+  400fd6:	89 c1                	mov    %eax,%ecx
+  400fd8:	c1 e9 1f             	shr    $0x1f,%ecx
+  400fdb:	01 c8                	add    %ecx,%eax
+  400fdd:	d1 f8                	sar    %eax
+  400fdf:	8d 0c 30             	lea    (%rax,%rsi,1),%ecx
+  400fe2:	39 f9                	cmp    %edi,%ecx
+  400fe4:	7e 0c                	jle    400ff2 <func4+0x24>
+  400fe6:	8d 51 ff             	lea    -0x1(%rcx),%edx
+  400fe9:	e8 e0 ff ff ff       	call   400fce <func4>
+  400fee:	01 c0                	add    %eax,%eax
+  400ff0:	eb 15                	jmp    401007 <func4+0x39>
+  400ff2:	b8 00 00 00 00       	mov    $0x0,%eax
+  400ff7:	39 f9                	cmp    %edi,%ecx
+  400ff9:	7d 0c                	jge    401007 <func4+0x39>
+  400ffb:	8d 71 01             	lea    0x1(%rcx),%esi
+  400ffe:	e8 cb ff ff ff       	call   400fce <func4>
+  401003:	8d 44 00 01          	lea    0x1(%rax,%rax,1),%eax
+  401007:	48 83 c4 08          	add    $0x8,%rsp
+  40100b:	c3                   	ret    
+```
