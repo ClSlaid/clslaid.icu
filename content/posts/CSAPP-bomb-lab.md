@@ -210,7 +210,7 @@ int sscanf(const char *str, const char *format, ...)
 
 ## Phase_3——switch
 
-> 在这里开始使用 cutter 进行拆弹工作
+> 在这里开始使用 [cutter](https://cutter.re/) 进行拆弹工作
 
 ```nasm
 0000000000400f43 <phase_3>:
@@ -374,3 +374,101 @@ $$\lbrace \langle 0, 207 \rangle,
   401007:	48 83 c4 08          	add    $0x8,%rsp
   40100b:	c3                   	ret    
 ```
+
+一开始就拿 arg3 和 arg2 做差，在里面又搀了一个递归调用，联想到参数在 0x0 和 0xe 之间，难道是个二分查找？那么返回的应该是个 index，我猜答案是 (0, 0)。
+
+可以手动照着汇编进行迫 真 反 编 译，然后~~结合猜测~~优化你的表达结果。
+
+```C
+int func4(int arg1, int arg2, int arg3) {
+    int temp1 = (arg3 - arg2)/2;
+    temp2 = temp1 + arg2; 
+    // temp2 = average(arg2, arg3)
+    // calculate like this could prevent overflowing.
+    if (temp2 <= arg1) {
+        temp1 = 0;
+        if (temp2 >= arg1) {
+            return temp1;
+        }
+        arg2 = temp2 + 1;
+        return 2*func4(arg1, arg2, arg3) + 1;
+    }else{
+        arg3 = temp2 - 1;
+        return 2*func4(arg1, arg2, arg3);
+    }
+    return func4(arg1, arg2, arg3)
+}
+```
+
+照着汇编写一段C语言，注意 SAR 和 SHR 是等同的，SAR rd 等价于 SAR 1 rd。常用右移操作作为快速的除法操作。
+
+算了算，结果真的是 <0, 0>。
+
+> So you got that one.  Try this one.
+
+## Phase_5 —— 字符串
+
+```NASM
+0000000000401062 <phase_5>:
+  401062:	53                   	push   %rbx
+  401063:	48 83 ec 20          	sub    $0x20,%rsp
+  401067:	48 89 fb             	mov    %rdi,%rbx
+  40106a:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  401071:	00 00 
+  401073:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+  401078:	31 c0                	xor    %eax,%eax
+  40107a:	e8 9c 02 00 00       	call   40131b <string_length>
+  40107f:	83 f8 06             	cmp    $0x6,%eax
+  401082:	74 4e                	je     4010d2 <phase_5+0x70>
+  401084:	e8 b1 03 00 00       	call   40143a <explode_bomb>
+```
+
+过程一开始往 %rsp + 0x18 塞了一个 %fs 寄存器里面弄出来的值，`cutter` 提示这是个 `canary` 值，所以大可以忽略它；同时这里需要你输入六个字符，不多不少；注意这里将 input 的起始地址放入了 %rbx 中。
+
+```NASM
+  40108b:	0f b6 0c 03          	movzbl (%rbx,%rax,1),%ecx
+  40108f:	88 0c 24             	mov    %cl,(%rsp)
+  401092:	48 8b 14 24          	mov    (%rsp),%rdx
+  401096:	83 e2 0f             	and    $0xf,%edx
+  401099:	0f b6 92 b0 24 40 00 	movzbl 0x4024b0(%rdx),%edx
+  4010a0:	88 54 04 10          	mov    %dl,0x10(%rsp,%rax,1)
+  4010a4:	48 83 c0 01          	add    $0x1,%rax
+  4010a8:	48 83 f8 06          	cmp    $0x6,%rax
+  4010ac:	75 dd                	jne    40108b <phase_5+0x29>
+```
+
+之后清零 %eax 来到 0x40108b，进入了一个 do-while 循环（0x40108b~0x4010ac）。在这里看到一个可疑的地址 0x4024b0，可以用 cutter 查看：
+
+```string
+"maduiersnfotvbylSo you think you can stop the bomb with ctrl-c, do you?"
+```
+
+人肉反编译出来：
+
+```C
+char* stk_str = rsp + 0x10;
+do{
+    char ecx = input[rax];
+    *rsp = ecx;
+    edx = ecx%16;
+    edx += 0x4024b0;
+    stk_str[rax] = *(edx%16);
+    rax++;
+} while (rax != 0x6);
+```
+
+```NASM
+  4010ae:	c6 44 24 16 00       	movb   $0x0,0x16(%rsp)
+  4010b3:	be 5e 24 40 00       	mov    $0x40245e,%esi
+  4010b8:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+  4010bd:	e8 76 02 00 00       	call   401338 <strings_not_equal>
+  4010c2:	85 c0                	test   %eax,%eax
+  4010c4:	74 13                	je     4010d9 <phase_5+0x77>
+  4010c6:	e8 6f 03 00 00       	call   40143a <explode_bomb>
+  4010cb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  4010d0:	eb 07                	jmp    4010d9 <phase_5+0x77>
+```
+
+可知，我们需要将字符串 stk_str 和 0x40245e 处的字符串相比较，可知 0x40245e 处的字符串为“flyers”。在字符串里的偏移量分别为 9, 15, 14, 5, 6, 7。查阅 ASCII 码表可以得到一个结果“IONEFG”，代入检查结果。
+
+> Good work!  On to the next...
