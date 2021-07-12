@@ -141,7 +141,7 @@ enableEmoji = true
           # Gravatar Email for preferred avatar in home page
           gravatarEmail = ""
           # URL of avatar shown in home page
-          avatarURL = "/asuka.jpg"
+          avatarURL = "asuka.jpg"
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
@@ -341,7 +341,7 @@ enableEmoji = true
           # Gravatar 邮箱，用于优先在主页显示的头像
           gravatarEmail = ""
           # 主页显示头像的 URL
-          avatarURL = "./asuka.jpg"
+          avatarURL = "/asuka.jpg"
           # 主页显示的网站标题 (支持 HTML 格式)
           title = ""
           # 主页显示的网站副标题
@@ -751,7 +751,7 @@ enableEmoji = true
       # 出版者信息
       [params.page.seo.publisher]
         name = "ClSlaid"
-        logoUrl = "./asuka.jpg"
+        logoUrl = "/asuka.jpg"
 
   # TypeIt config
   # TypeIt 配置
