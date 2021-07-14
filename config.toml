@@ -141,7 +141,7 @@ enableEmoji = true
           # Gravatar Email for preferred avatar in home page
           gravatarEmail = ""
           # URL of avatar shown in home page
-          avatarURL = "asuka.jpg"
+          avatarURL = "/asuka.jpg"
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
@@ -767,7 +767,7 @@ enableEmoji = true
     cursorChar = "_"
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
-    duration = -1
+    duration = 30
 
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
