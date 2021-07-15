@@ -1,5 +1,5 @@
 ---
-title: "Bomb Lab"
+title: "详解 Bomb Lab (1-5)"
 date: 2021-07-10T14:38:43+08:00
 draft: false
 tags: ["折腾", "CSAPP", "Reversing", "Bomb Lab"]
@@ -21,7 +21,7 @@ $ ls -l
 
 note 中莫得任何可用信息，bomb.c 交代了大致逻辑，无非是：
 
-```mermaid
+{{< mermaid >}}
 sequenceDiagram
     participant main
     participant phase_x
@@ -31,7 +31,7 @@ sequenceDiagram
     phase_x ->> main: exit normally
     main ->> main: bomb defused
     main ->> main: go to next pahse or exit
-```
+{{< /mermaid >}}
 
 一眼看过去大概有 6 个 Phase，Phase 里面具体是个啥都在 .h 文件里面了，然而 .h 文件缺失了。于是只能上手 Reversing ？
 
