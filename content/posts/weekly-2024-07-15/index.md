@@ -1,51 +1,38 @@
 ---
-title: "weekly 2024 07 14"
+title: "Weekly Update - 2024-07-14"
 date: 2024-07-15T02:23:33+08:00
 draft: false
 ---
 
-> My arch linux's fcitx5 is broken again. So this will be written in English.
+> My Arch Linux's fcitx5 is broken again, so this will be written in English.
 
-It's been a long time since the last update. There are too many to be told,
-I'll update them in the following weeks.
+It's been a long time since my last update. There are many things to share, and I'll update them in the following weeks.
 
 ## Technique
 
-I had a glance at a NUMA machine (or cluster), strongly astonished by the size
-of its available DRAM (>= 500 TiB).
+I recently had the opportunity to work with a NUMA machine (or cluster) and was astonished by the size of its available DRAM (>= 500 TiB).
 
-The original task for me was pretty straight forward, and should not be too
-hard to implement. However, I still had a great struggle with C++ the bloody
-programming language.
+The original task assigned to me seemed straightforward and not too difficult to implement. However, I encountered significant challenges with C++.
 
-~~And then, I rewrite it in rust.~~
+~~And then, I rewrote the whole original program in Rust.~~
 
-The outcome was good at first, with improved codec schema, it did achieved a
-200% throughput boost on our development environment.
-Then I need to test if it really works in our production environment.
+Initially, the outcome was promising. With an improved codec schema, we achieved a 200% throughput boost in our development environment. The next step was to test its performance in our production environment.
 
-It was my first time seeing a NUMA machine. NUMA could be good if your program
-could drain up its locality. I did thought it would be easy, so I made some days
-of benchmarking, only to find out the network throughput is even 1.2 times
-faster than writing to shared memory. (how could it be?)
+It was my first time working with a NUMA machine. NUMA can be beneficial if your program can effectively utilize its locality. I assumed it would be simple, but after days of benchmarking, I discovered that network throughput was 1.2 times faster than writing to shared memory. (How could that be?)
 
-After switching around a few parallel patterns, ultimately, only at most 10%
-percent boost could be achieved. Well, if counting on the pre-processing, and
-CPUs used, that was a total defeat. My first task ends up a trail of failure.
+After experimenting with various parallel patterns, I managed to achieve only a 10% performance boost at best. Considering the pre-processing and CPU usage, this was a disappointing result. My first task ended in a trial of failure.
 
 ## Amateur Radio
 
-Using equipment Baofeng UV5R, made a successful contact with `BH4HED`,
-on 438.5MHz, WFM mode, loud and clear. (Date Time forgotten...)
+Using the Baofeng UV5R (a classic), I successfully made contact with `BH4HED` on 438.5MHz, WFM mode, loud and clear. (Date and time forgotten...)
+
+Shortwave equipment is quite expensive. My stereotypes about analog devices have been reinforced. ;(
+
+Hope to become a well-trained CW operator someday.
 
 ## Life
 
-- Learned how some mental medicines work. It was fun and useful.
-
-- Try to make myself looks good, it takes patience.
-
-- Learning cooking.
-
-- Learnt how to play the intro of _wonderful tonight_.
-
-- Learnt how to play the first solo of _wish you were here_.
+- Learned how some mental medications work. It was both fun and useful.
+- Learning to cook.
+- Learned to play the intro of _Wonderful Tonight_.
+- Learned to play the first solo of _Wish You Were Here_.
