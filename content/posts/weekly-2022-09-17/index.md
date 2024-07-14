@@ -90,9 +90,9 @@ enum State {
     // 单次迭代的起点，也往往是终态
     Idle,
     // 中间状态，基本上都在这里等待结果
-    Intermediate(/* state parameters*/), 
+    Intermediate(/* state parameters*/),
     // 目标状态，在这个状态下执行 poll_next 时会返回结果
-    Yielding(/* state parameters */) 
+    Yielding(/* state parameters */)
 }
 
 struct DirStream {
@@ -106,7 +106,7 @@ struct DirStream {
 impl Stream for DirStream {
     type Item = DirEntry;
     fn poll_next(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Option<Self::Item>> {
-        
+
         // 进入函数，搞一些初试化的工作...
 
         // 为实现状态转移，需要可变性
@@ -138,12 +138,14 @@ impl Stream for DirStream {
 ```
 
 本来以为在 `AsyncIter` 上再次进行 `Stream` 的实现应当不会特别困难，但是 `AsyncIter` 这玩意带了个生命周期，于是就导致了极致的痛苦。最初定义的 `DirStream` 如下：
+
 ```rust
 struct DirStream {
     it: AsyncIter<'_, String>,
     // other fields
 }
 ```
+
 很遗憾，这个生命周期是省不掉的。如果为 `AsyncIter` 带上一个 `'a` 的生命周期，那么包含它的 `DirStream` 也得带一个 `'a`，因为它们基本上同生共死。
 
 ```rust
@@ -220,6 +222,7 @@ if let Some(child) = children.last() {
 本周发生的事情比较少，但是是承前启后的一周。
 
 ### 精神内耗
+
 本来以为在家里没有同龄人就足够压抑了。不过在老家的时候可能还会偶尔在下午忙里偷闲上界买杯饮料当做唯一的户外活动，到了学校里基本上就呆在寝室里，坐在椅子上感受着自己的思维腐坏。
 
 其实早在去年考研的时候就有这种感觉，某天晚上实在感受到胸中积郁难以排除，就去学校里的宰客超市(上周刚被我的低性能代码霍霍了，不过下周再展开说罢)买了一罐啤酒，想不到在微醺的时候反而感受到了以前灵感迸发思维活跃的感觉。当即就意识到心情长期低沉不是啥好事。

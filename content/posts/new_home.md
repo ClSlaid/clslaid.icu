@@ -13,6 +13,7 @@ draft: false
 ## 新博客功能演示
 
 数学公式：
+
 $$
     F(\omega) = \int_{-\infty}^{\infty}{f(t)e^{-j{\omega}t}}{\rm d}t  \newline
     f(t) = \int_{-\infty}^{\infty}{F(\omega)e^{j{\omega}t}}{\rm d}\omega
@@ -70,7 +71,7 @@ sequence diagrams: (unsupported)
     Server->Client: "http:200 OK:{state: 404}"
 ```
 
-mermaid: 
+mermaid:
 
 {{< mermaid >}}
 graph LR

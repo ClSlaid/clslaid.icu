@@ -18,7 +18,6 @@ Note right of 主机B: 收到 ACK (ack = y+1)
 Note over 主机A, 主机B: TCP 连接建立成功
 {{</mermaid >}}
 
-
 如上是一个利用 `mermaid` 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 `mermaid` 绘图具备诸多优点：
 
 1. 网站保存的是带 `mermaid` 的 `markdown` 文件，不涉及到图片存储。存储占用小。
@@ -42,8 +41,8 @@ Note over 主机A, 主机B: TCP 连接建立成功
 
 1. 在博客中加载 `mermaidJS`。具体方法有：
 
-    - 直接在一定会加载的 `HTML` 文件中引入 `<script>` 标签，加载 `mermaid`。
-    - 在部分支持自定义 `JavaScript` 的主题中，引入 `JavaScript` 文件。
+   - 直接在一定会加载的 `HTML` 文件中引入 `<script>` 标签，加载 `mermaid`。
+   - 在部分支持自定义 `JavaScript` 的主题中，引入 `JavaScript` 文件。
 
 2. 自定义 `ShortCodes`，依靠 `ShortCodes` 实现标签替换。
 
@@ -99,14 +98,14 @@ Note over 网页内容: 渲染完成的 HTML 文件
 </code></pre>
 ```
 
-的代码块，并将其替换成``<div class="mermaid">``即可。
+的代码块，并将其替换成`<div class="mermaid">`即可。
 
 ---
 
 ## 在 even theme 中的实现
 
 {{<admonition warning "注意">}}
-注意： 下文中的 “/” 目录代表 even theme 项目的根目录而不是 *nix 文件系统的 root.
+注意： 下文中的 “/” 目录代表 even theme 项目的根目录而不是 \*nix 文件系统的 root.
 {{</admonition>}}
 
 本博客使用的是 even theme. 但是俺相信参照本文在其他博客中进行实现也会大差不差。
@@ -138,7 +137,6 @@ Note over 网页内容: 渲染完成的 HTML 文件
 观察 even 主题的源码，咱们可以在 `/assets/js/` 目录下发现 `main.js` 和 `even.js`。在 `even.js` 中插入如下代码段：
 
 ```javascript
-
 // 插到文件末尾完事了
 
 Even.mermaid = function () {
@@ -168,9 +166,9 @@ Even.mermaid = function () {
   window.mermaid.mermaidAPI.initialize(
     window.mermaidOptions
       ? window.mermaidOptions
-      : { securityLevel: "loose", theme: "base" }
-      // 替换它可以修改 mermaid 的样式=======↑
- );
+      : { securityLevel: "loose", theme: "base" },
+    // 替换它可以修改 mermaid 的样式=======↑
+  );
 };
 ```
 
