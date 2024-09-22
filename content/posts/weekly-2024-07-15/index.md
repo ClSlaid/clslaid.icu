@@ -10,7 +10,7 @@ It's been a long time since my last update. There are many things to share, and 
 
 ## Technique
 
-I recently had the opportunity to work with a NUMA machine (or cluster) and was astonished by the size of its available DRAM (>= 500 TiB).
+I recently had the opportunity to work with a NUMA machine (or cluster) and was astonished by the size of its available DRAM (>= 500 GiB).
 
 The original task assigned to me seemed straightforward and not too difficult to implement. However, I encountered significant challenges with C++.
 
