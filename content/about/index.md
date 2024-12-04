@@ -8,7 +8,8 @@ menu: "main"
 ## who am I?
 
 ~~21 岁，是老菜鸡。~~
-23 岁，为什么还呆在学校里？
+~~23 岁，为什么还呆在学校里？~~
+23.5 years old, failures unevictable.
 
 ## 友情链接
 
@@ -18,10 +19,14 @@ menu: "main"
 - ~~即将~~已经脱单的何巨巨：[RinchanNow!](https://rinchannowww.github.io)
 - 柯西莫🍊：[Murphy](https://murphy-orangemud.github.io)
 - ayamir: [ayamir's blog](https://ayamir.github.io)
+- 钞哥: [waruto210](https://waruto.top)
+- 睿哥哥: [lirui.org](https://www.lirui.org)
+- Min Sun: [Min Sun](https://aaronsun2000.github.io)
 
 ## 膜
 
 迟先生：[skyzh](https://skyzh.dev)
+千里冰封: [ice1000](https://ice1000.org)
 
 ## 神秘链接
 
